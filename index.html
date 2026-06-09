@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Evently - Hitta lokala evenemang du kommer älska</title>
+
+    <!-- Google Fonts Preconnect and Links for Variable Fonts: Inter and Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="content-grid">
+    <!-- Header -->
+    <header class="content-grid full-width header">
+      <nav class="navbar">
+        <div class="navbar__logo">
+          <svg class="svg-logo" width="32" height="32" aria-hidden="true">
+            <use href="icons.svg#logo-icon"></use>
+          </svg>
+          <h2>Evently</h2>
+        </div>
+        <ul>
+          <li><a class="navbar__link" href="#">Hem</a></li>
+          <li><a class="navbar__link" href="#">Evenemang</a></li>
+          <li><a class="navbar__link" href="#">Kategorier</a></li>
+          <li><a class="navbar__link" href="#">Om oss</a></li>
+          <li><a class="navbar__link" href="#">Kontakt</a></li>
+        </ul>
+        <div class="navbar__end">
+          <svg class="svg-hamburger" width="32" height="32" aria-hidden="true">
+            <use href="icons.svg#spyglass-icon"></use>
+          </svg>
+          <button>Skapa konto</button>
+        </div>
+        <!-- <svg class="svg-hamburger" width="32" height="32" aria-hidden="true">
+          <use href="icons.svg#hamburger-icon"></use>
+        </svg> -->
+      </nav>
+    </header>
+
+    <!-- Main content -->
+    <main class="full-width content-grid">
+      <section class="hero">
+        <section class="hero__text">
+          <span class="hero__tag">Upptäck. Upplev. Minns.</span>
+          <h1>Hitta lokala evenemang du kommer älska</h1>
+          <p>
+            Från konserter och marknader till workshops och familjeaktiviteter.
+            Upptäck vad som händer nära dig.
+          </p>
+          <div>
+            <button>Utforska evenemang</button>
+            <button>Se helgens tips</button>
+          </div>
+        </section>
+        <section class="hero__images">
+          <img src="https://picsum.photos/id/452/200/500" />
+          <img src="https://picsum.photos/id/452/200/700" />
+          <img src="https://picsum.photos/id/452/200/300" />
+        </section>
+      </section>
+      <section class="full-width content-grid search">
+        <div>
+          <h3>Hitta rätt evenemang</h3>
+          <form class="searchform">
+            <div class="formgroup">
+              <label for="searchstring">Sökord</label>
+              <input
+                type="search"
+                id="searchstring"
+                placeholder="Sök på t.ex. konsert, yoga..."
+              />
+            </div>
+            <div class="formgroup">
+              <label for="category">Kategori</label>
+              <select id="category">
+                <option value="" selected disabled>Alla kategorier</option>
+                <option value="consert">Konsert</option>
+                <option value="market">Marknad</option>
+                <option value="workshop">Workshop</option>
+                <option value="family">Familj</option>
+                <option value="sport">Sport / Hälsa</option>
+              </select>
+            </div>
+            <div class="formgroup">
+              <label for="date">Datum</label>
+              <input type="date" id="date" />
+            </div>
+            <button>Sök evenemang</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="content-grid">
+        <div class="gallery__headline">
+          <h2>Populära evenemang</h2>
+          <a href="#">Se alla evenemang -></a>
+        </div>
+        <div class="gallery">
+          <article class="card">
+            <img src="https://picsum.photos/id/452/200/300" />
+            <div class="card__text">
+              <div class="card__type">
+                <span class="tag konsert">Konsert</span>
+                <span>24 maj</span>
+              </div>
+              <h3>Indie Night med Nova Sun</h3>
+              <span>Pustervik, Göteborg</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <img
+              src="https://images.unsplash.com/photo-1459292414836-763d35c7ae4c?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            />
+            <div class="card__text">
+              <div class="card__type">
+                <span class="tag market">Marknad</span>
+                <span>25 maj</span>
+              </div>
+              <h3>Vårmarknad i Slottsskogen</h3>
+              <span>Slottsskogen, Göteborg</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <img
+              src="https://images.unsplash.com/photo-1607556671927-78a6605e290b?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            />
+            <div class="card__text">
+              <div class="card__type">
+                <span class="tag workshop">Workshop</span>
+                <span>27 maj</span>
+              </div>
+              <h3>Keramikkurs för nybörjare</h3>
+              <span>Studio Lera, Göteborg</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <img
+              src="https://images.unsplash.com/photo-1508700193932-2293b4385ab9?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            />
+            <div class="card__text">
+              <div class="card__type">
+                <span class="tag family">Familj</span>
+                <span>31 maj</span>
+              </div>
+              <h3>Barnteater: Den lilla sjöjungfrun</h3>
+              <span>Folkteatern, Göteborg</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="https://picsum.photos/id/202/200/300" />
+            <div class="card__text">
+              <div class="card__type">
+                <span class="tag sport">Sport</span>
+                <span>1 juni</span>
+              </div>
+              <h3>Morgonlöpning & frukost</h3>
+              <span>Slottsskogen, Göteborg</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <img
+              src="https://images.unsplash.com/photo-1415201364774-f6f0bb35f28f?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            />
+            <div class="card__text">
+              <div class="card__type">
+                <span class="tag konsert">Konsert</span>
+                <span>3 juni</span>
+              </div>
+              <h3>Jazzkväll på Vasateatern</h3>
+              <span>Vasateatern, Göteborg</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="full-width content-grid banner">
+        <div class="banner__content">
+          <div class="banner__card">
+            <div class="encircledfilled">
+              <svg width="42" height="42" aria-hidden="true">
+                <use href="icons.svg#ticket-icon"></use>
+              </svg>
+            </div>
+            <h3>Gratis & prisvärt</h3>
+            <p>
+              Hitta massor av evenemang som är gratis eller snälla mot
+              plånboken.
+            </p>
+          </div>
+          <div class="banner__card">
+            <div class="encircledfilled">
+              <svg width="42" height="42" aria-hidden="true">
+                <use href="icons.svg#people-icon"></use>
+              </svg>
+            </div>
+            <h3>För alla åldrar</h3>
+            <p>
+              Aktiviteter för både stora och små - hitta något som passar hela
+              familjen.
+            </p>
+          </div>
+          <div class="banner__card">
+            <div class="encircledfilled">
+              <svg width="42" height="42" aria-hidden="true">
+                <use href="icons.svg#location-icon"></use>
+              </svg>
+            </div>
+            <h3>Nära dig</h3>
+            <p>Upptäck evenemang i ditt område och stöd lokala arrangörer.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="full-width content-grid footer">
+      <div class="footer__content">
+        <div class="footer__media">
+          <div class="footer__logo">
+            <svg class="svg-logo" width="32" height="32" aria-hidden="true">
+              <use href="icons.svg#logo-icon"></use>
+            </svg>
+            <h3>Evently</h3>
+          </div>
+          <p>
+            Evently samlar lokala evenemang så att du enkelt kan upptäcka,
+            planera och dela upplevelser som berikar din vardag.
+          </p>
+          <div>
+            <svg width="42" height="42" aria-hidden="true" class="encircled">
+              <use href="icons.svg#instagram-icon"></use>
+            </svg>
+            <svg width="42" height="42" aria-hidden="true" class="encircled">
+              <use href="icons.svg#facebook-icon"></use>
+            </svg>
+            <svg width="42" height="42" aria-hidden="true" class="encircled">
+              <use href="icons.svg#x-icon"></use>
+            </svg>
+          </div>
+        </div>
+        <ul>
+          <li class="list__header">Utforska</li>
+          <li>Alla evenemang</li>
+          <li>Kategorier</li>
+          <li>Helgens tips</li>
+          <li>Populära</li>
+        </ul>
+        <ul>
+          <li class="list__header">Om Evently</li>
+          <li>Om oss</li>
+          <li>För arrangörer</li>
+          <li>Vanliga frågor</li>
+          <li>Nyheter</li>
+        </ul>
+        <ul>
+          <li class="list__header">Kontakt</li>
+          <li>info@evently.se</li>
+          <li>031-123 45 67</li>
+          <li>Stora Badhusgatan 18 <br />411 21 Göteborg</li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>
