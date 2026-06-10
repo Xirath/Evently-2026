@@ -26,18 +26,42 @@
           </svg>
           <h2>Evently</h2>
         </div>
-        <ul>
-          <li><a class="navbar__link" href="#">Hem</a></li>
-          <li><a class="navbar__link" href="#">Evenemang</a></li>
-          <li><a class="navbar__link" href="#">Kategorier</a></li>
-          <li><a class="navbar__link" href="#">Om oss</a></li>
-          <li><a class="navbar__link" href="#">Kontakt</a></li>
-        </ul>
-        <div class="navbar__end">
-          <svg class="svg-hamburger" width="32" height="32" aria-hidden="true">
-            <use href="icons.svg#spyglass-icon"></use>
-          </svg>
-          <button>Skapa konto</button>
+        <div class="navbar__menu">
+          <ul class="navbar__links">
+            <li class="navbar__item">
+              <a class="navbar__link navbar__link--active" href="#">Hem</a>
+            </li>
+            <li class="navbar__item">
+              <a class="navbar__link" href="#">Evenemang</a>
+            </li>
+            <li class="navbar__item">
+              <a class="navbar__link" href="#">Kategorier</a>
+            </li>
+            <li class="navbar__item">
+              <a class="navbar__link" href="#">Om oss</a>
+            </li>
+            <li class="navbar__item">
+              <a class="navbar__link" href="#">Kontakt</a>
+            </li>
+          </ul>
+          <div class="navbar__end">
+            <svg class="svg-spyglass" width="32" height="32" aria-hidden="true">
+              <use href="icons.svg#spyglass-icon"></use>
+            </svg>
+            <button>Skapa konto</button>
+          </div>
+        </div>
+        <div class="navbar__open">
+          <button>
+            <svg
+              class="svg-hamburger"
+              width="32"
+              height="32"
+              aria-hidden="true"
+            >
+              <use href="icons.svg#hamburger-icon"></use>
+            </svg>
+          </button>
         </div>
         <!-- <svg class="svg-hamburger" width="32" height="32" aria-hidden="true">
           <use href="icons.svg#hamburger-icon"></use>
@@ -49,15 +73,15 @@
     <main class="full-width content-grid">
       <section class="hero">
         <section class="hero__text">
-          <span class="hero__tag">Upptäck. Upplev. Minns.</span>
+          <span class="tag">Upptäck. Upplev. Minns.</span>
           <h1>Hitta lokala evenemang du kommer älska</h1>
           <p>
             Från konserter och marknader till workshops och familjeaktiviteter.
             Upptäck vad som händer nära dig.
           </p>
-          <div>
+          <div class="hero__buttons">
             <button>Utforska evenemang</button>
-            <button>Se helgens tips</button>
+            <button class="altbutton">Se helgens tips</button>
           </div>
         </section>
         <section class="hero__images">
@@ -111,8 +135,17 @@
                 <span class="tag konsert">Konsert</span>
                 <span>24 maj</span>
               </div>
-              <h3>Indie Night med Nova Sun</h3>
+              <a href="#" class="card__main-link"
+                ><h3>Indie Night med Nova Sun</h3></a
+              >
               <span>Pustervik, Göteborg</span>
+              <a href="#" class="favorite">
+                <div class="encircledfavorite">
+                  <svg width="25" height="25" aria-hidden="true">
+                    <use href="icons.svg#heart-icon"></use>
+                  </svg>
+                </div>
+              </a>
             </div>
           </article>
 
@@ -125,7 +158,9 @@
                 <span class="tag market">Marknad</span>
                 <span>25 maj</span>
               </div>
-              <h3>Vårmarknad i Slottsskogen</h3>
+              <a href="#" class="card__main-link"
+                ><h3>Vårmarknad i Slottsskogen</h3></a
+              >
               <span>Slottsskogen, Göteborg</span>
             </div>
           </article>
@@ -139,7 +174,9 @@
                 <span class="tag workshop">Workshop</span>
                 <span>27 maj</span>
               </div>
-              <h3>Keramikkurs för nybörjare</h3>
+              <a href="#" class="card__main-link"
+                ><h3>Keramikkurs för nybörjare</h3></a
+              >
               <span>Studio Lera, Göteborg</span>
             </div>
           </article>
@@ -153,7 +190,9 @@
                 <span class="tag family">Familj</span>
                 <span>31 maj</span>
               </div>
-              <h3>Barnteater: Den lilla sjöjungfrun</h3>
+              <a href="#" class="card__main-link"
+                ><h3>Barnteater: Den lilla sjöjungfrun</h3></a
+              >
               <span>Folkteatern, Göteborg</span>
             </div>
           </article>
@@ -165,7 +204,9 @@
                 <span class="tag sport">Sport</span>
                 <span>1 juni</span>
               </div>
-              <h3>Morgonlöpning & frukost</h3>
+              <a href="#" class="card__main-link"
+                ><h3>Morgonlöpning & frukost</h3></a
+              >
               <span>Slottsskogen, Göteborg</span>
             </div>
           </article>
@@ -179,7 +220,9 @@
                 <span class="tag konsert">Konsert</span>
                 <span>3 juni</span>
               </div>
-              <h3>Jazzkväll på Vasateatern</h3>
+              <a href="#" class="card__main-link"
+                ><h3>Jazzkväll på Vasateatern</h3></a
+              >
               <span>Vasateatern, Göteborg</span>
             </div>
           </article>
@@ -194,11 +237,13 @@
                 <use href="icons.svg#ticket-icon"></use>
               </svg>
             </div>
-            <h3>Gratis & prisvärt</h3>
-            <p>
-              Hitta massor av evenemang som är gratis eller snälla mot
-              plånboken.
-            </p>
+            <div class="banner__text">
+              <h3>Gratis & prisvärt</h3>
+              <p>
+                Hitta massor av evenemang som är gratis eller snälla mot
+                plånboken.
+              </p>
+            </div>
           </div>
           <div class="banner__card">
             <div class="encircledfilled">
@@ -206,11 +251,13 @@
                 <use href="icons.svg#people-icon"></use>
               </svg>
             </div>
-            <h3>För alla åldrar</h3>
-            <p>
-              Aktiviteter för både stora och små - hitta något som passar hela
-              familjen.
-            </p>
+            <div class="banner__text">
+              <h3>För alla åldrar</h3>
+              <p>
+                Aktiviteter för både stora och små - hitta något som passar hela
+                familjen.
+              </p>
+            </div>
           </div>
           <div class="banner__card">
             <div class="encircledfilled">
@@ -218,8 +265,10 @@
                 <use href="icons.svg#location-icon"></use>
               </svg>
             </div>
-            <h3>Nära dig</h3>
-            <p>Upptäck evenemang i ditt område och stöd lokala arrangörer.</p>
+            <div class="banner__text">
+              <h3>Nära dig</h3>
+              <p>Upptäck evenemang i ditt område och stöd lokala arrangörer.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -239,36 +288,42 @@
             Evently samlar lokala evenemang så att du enkelt kan upptäcka,
             planera och dela upplevelser som berikar din vardag.
           </p>
-          <div>
-            <svg width="42" height="42" aria-hidden="true" class="encircled">
-              <use href="icons.svg#instagram-icon"></use>
-            </svg>
-            <svg width="42" height="42" aria-hidden="true" class="encircled">
-              <use href="icons.svg#facebook-icon"></use>
-            </svg>
-            <svg width="42" height="42" aria-hidden="true" class="encircled">
-              <use href="icons.svg#x-icon"></use>
-            </svg>
+          <div class="footer__logos">
+            <a href="https://www.instagram.com/">
+              <svg width="42" height="42" aria-hidden="true" class="encircled">
+                <use href="icons.svg#instagram-icon"></use>
+              </svg>
+            </a>
+            <a href="https://www.facebook.com/">
+              <svg width="42" height="42" aria-hidden="true" class="encircled">
+                <use href="icons.svg#facebook-icon"></use>
+              </svg>
+            </a>
+            <a href="https://x.com">
+              <svg width="42" height="42" aria-hidden="true" class="encircled">
+                <use href="icons.svg#x-icon"></use>
+              </svg>
+            </a>
           </div>
         </div>
         <ul>
           <li class="list__header">Utforska</li>
-          <li>Alla evenemang</li>
-          <li>Kategorier</li>
-          <li>Helgens tips</li>
-          <li>Populära</li>
+          <li><a href="#">Alla evenemang</a></li>
+          <li><a href="#">Helgens tips</a></li>
+          <li><a href="#">Kategorier</a></li>
+          <li><a href="#">Populära</a></li>
         </ul>
         <ul>
           <li class="list__header">Om Evently</li>
-          <li>Om oss</li>
-          <li>För arrangörer</li>
-          <li>Vanliga frågor</li>
-          <li>Nyheter</li>
+          <li><a href="#">Om oss</a></li>
+          <li><a href="#">För arrangörer</a></li>
+          <li><a href="#">Vanliga frågor</a></li>
+          <li><a href="#">Nyheter</a></li>
         </ul>
         <ul>
           <li class="list__header">Kontakt</li>
-          <li>info@evently.se</li>
-          <li>031-123 45 67</li>
+          <li><a href="mailto:info@evently.se">info@evently.se</a></li>
+          <li><a href="tel:+4631-123-45-67">031-123 45 67</a></li>
           <li>Stora Badhusgatan 18 <br />411 21 Göteborg</li>
         </ul>
       </div>
