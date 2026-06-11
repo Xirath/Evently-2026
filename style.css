@@ -1,6 +1,4 @@
 :root {
-  /* Note to self: Use Autofill on gallery-grid?, Images in the gallery should be aligned with the rest of content-grid*/
-
   /* Fonts */
   --font-inter: "Inter", system-ui, -apple-system, sans-serif;
   --font-poppins: "Poppins", system-ui, -apple-system, sans-serif;
@@ -112,7 +110,7 @@ button {
   white-space: nowrap;
   color: white;
 
-  &.altbutton {
+  &.button--alt {
     background-color: white;
     color: var(--purple-600);
   }
@@ -121,6 +119,20 @@ button {
     transform: translateY(-0.1rem);
     transition: all 0.2s linear;
     filter: saturate(0.8);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--purple-600);
+    outline-offset: 2px;
+    transition: 0.2s;
+  }
+}
+
+a {
+  &:focus-visible {
+    outline: 2px solid var(--purple-600);
+    outline-offset: 1px;
+    transition: 0.2s;
   }
 }
 
@@ -247,16 +259,59 @@ button {
   display: flex;
   width: 100%;
 
-  @media (width <1000px) {
-    background-color: purple;
-    position: fixed;
-    inset: 0;
+  @media (width < 1000px) {
+    flex-direction: column;
+    background-color: white;
+    border-radius: 0 0 0 5px;
+    box-shadow: -2px 2px 10px 5px black;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 30vw;
+    height: 50vh;
+    z-index: 10;
     translate: 100vw 0;
     transition: translate 0.5s ease-in-out;
+
+    .navbar__close {
+      align-self: end;
+      background-color: transparent;
+      border: transparent;
+    }
+
+    .navbar__links {
+      margin-top: 3rem;
+      display: grid;
+      align-items: center;
+      text-align: center;
+    }
+
+    .navbar__buttons {
+      display: none;
+    }
   }
 }
 
-.navbar__end {
+.navbar__close {
+  @media (width >= 1000px) {
+    display: none;
+  }
+  @media (width < 1000px) {
+    display: block;
+  }
+}
+
+@media (width < 1000px) {
+  .navbar:has(#btnOpen[aria-expanded="true"]) .navbar__menu {
+    translate: 0;
+  }
+
+  .navbar:has(#btnOpen[aria-expanded="false"]) .navbar__menu {
+    translate: 100vw 0;
+  }
+}
+
+.navbar__buttons {
   display: flex;
   gap: 1rem;
   margin-inline-start: auto;
@@ -318,9 +373,16 @@ button {
   align-content: space-evenly;
   gap: 1rem;
 
-  a {
+  a:not(.encircled) {
+    border-radius: 3px;
     &:hover {
       color: var(--blue-100);
+      transition: 0.2s;
+    }
+    &:focus-visible {
+      outline: 2px solid white;
+
+      outline-offset: 1px;
       transition: 0.2s;
     }
   }
@@ -348,18 +410,28 @@ button {
 }
 
 .footer__logo {
-  display: flex;
+  a {
+    display: flex;
+  }
 }
 
 .encircled {
-  border-radius: 50%;
-  padding: 5px;
-  border: 1px solid var(--gray-300);
+  svg {
+    border-radius: 50%;
+    padding: 5px;
+    border: 1px solid var(--gray-300);
 
-  &:hover {
-    transition: 0.2s;
-    color: white;
-    border-color: white;
+    &:hover {
+      transition: 0.2s;
+      color: white;
+      border-color: white;
+    }
+  }
+  &:focus-visible {
+    svg {
+      box-shadow: 0 0 0 1px white;
+    }
+    outline: 0px;
   }
 }
 
@@ -383,7 +455,7 @@ button {
   column-gap: 1.5rem;
   margin-block: 1.5rem;
 
-  .formgroup {
+  .form__group {
     flex: 1 1 250px;
     display: flex;
     flex-direction: column;
@@ -418,7 +490,6 @@ button {
 
   .banner__card {
     display: grid;
-    align-content: start;
 
     width: 90%;
     justify-self: center;
@@ -475,7 +546,6 @@ button {
   position: relative;
   display: grid;
   grid-template-rows: 3fr 2fr;
-  flex-direction: column;
   background-color: white;
   box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
@@ -488,6 +558,12 @@ button {
     position: center;
     object-fit: cover;
     border-radius: 10px;
+  }
+
+  a {
+    &:focus-visible {
+      outline: 0px;
+    }
   }
 }
 
@@ -507,7 +583,7 @@ button {
   outline-offset: 2px;
 }
 
-.favorite {
+.card__favorite {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -523,6 +599,15 @@ button {
   transition: 0.2s;
 
   &:hover {
+    background-color: oklab(100% 0 -0.00011 / 0.524);
+    border: 2px solid white;
+
+    svg {
+      transform: scale(1.1);
+    }
+  }
+
+  &:focus-visible {
     background-color: oklab(100% 0 -0.00011 / 0.524);
     border: 2px solid white;
 
@@ -563,6 +648,15 @@ button {
   justify-content: space-between;
   align-items: center;
   color: var(--gray-600);
+}
+
+.search-button {
+  background-color: transparent;
+  border: transparent;
+  padding: 0px;
+  margin: 0px;
+  height: 24px;
+  line-height: 1;
 }
 
 .gallery__headline {
@@ -626,23 +720,23 @@ label {
   background-color: var(--purple-200);
   color: var(--purple-600);
 
-  &.konsert {
+  &.tag--konsert {
     background-color: var(--purple-100);
     color: var(--purple-800);
   }
-  &.market {
+  &.tag--market {
     background-color: var(--emerald-100);
     color: var(--emerald-800);
   }
-  &.workshop {
+  &.tag--workshop {
     background-color: var(--orange-100);
     color: var(--orange-800);
   }
-  &.family {
+  &.tag--family {
     background-color: var(--pink-100);
     color: var(--pink-800);
   }
-  &.sport {
+  &.tag--sport {
     background-color: var(--blue-100);
     color: var(--blue-800);
   }
@@ -651,22 +745,21 @@ label {
 .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-block-end: 3rem;
 
   @media (width < 1000px) {
     grid-template-columns: 1fr;
   }
 
-  gap: 2rem;
-  margin-block-end: 3rem;
-
   h1 {
-    font-size: 4rem;
+    font-size: clamp(1.75rem, 1.25vw + 1.75rem, 4rem);
     font-weight: bold;
   }
 
   p {
     color: var(--gray-600);
-    font-size: large;
+    font-size: clamp(0.75rem, 1.25vw + 0.75rem, 2rem);
   }
 
   .hero__text {
@@ -678,16 +771,18 @@ label {
 
   .hero__buttons {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
   }
 
   .hero__images {
     width: 100%;
     display: grid;
+    min-width: 0px;
+    gap: 0.5rem;
     grid-template-columns: 9fr 6fr 7fr;
-    /* TODO: find some better way to set the height of the images */
-
     grid-template-rows: 350px;
+
     @media (width > 1000px) {
       grid-template-columns: 3fr 2fr;
       > :first-child {
@@ -696,12 +791,14 @@ label {
       grid-template-rows: 250px 250px;
     }
 
-    gap: 0.5rem;
+    @media (width < 600px) {
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr;
+    }
 
     img {
       width: 100%;
       height: 100%;
-      position: center;
       object-fit: cover;
       border-radius: 10px;
     }

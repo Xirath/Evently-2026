@@ -21,12 +21,18 @@
     <header class="content-grid full-width header">
       <nav class="navbar">
         <div class="navbar__logo">
-          <svg class="svg-logo" width="32" height="32" aria-hidden="true">
+          <svg width="32" height="32" aria-hidden="true">
             <use href="icons.svg#logo-icon"></use>
           </svg>
           <h2>Evently</h2>
         </div>
+
         <div class="navbar__menu">
+          <button id="btnClose" class="navbar__close" aria-expanded="false">
+            <svg width="32" height="32" aria-hidden="true">
+              <use href="icons.svg#close-icon"></use>
+            </svg>
+          </button>
           <ul class="navbar__links">
             <li class="navbar__item">
               <a class="navbar__link navbar__link--active" href="#">Hem</a>
@@ -44,35 +50,29 @@
               <a class="navbar__link" href="#">Kontakt</a>
             </li>
           </ul>
-          <div class="navbar__end">
-            <svg class="svg-spyglass" width="32" height="32" aria-hidden="true">
-              <use href="icons.svg#spyglass-icon"></use>
-            </svg>
+          <div class="navbar__buttons">
+            <button class="search-button" aria-label="Search">
+              <svg width="32" height="32" aria-hidden="true">
+                <use href="icons.svg#spyglass-icon"></use>
+              </svg>
+            </button>
             <button>Skapa konto</button>
           </div>
         </div>
         <div class="navbar__open">
-          <button>
-            <svg
-              class="svg-hamburger"
-              width="32"
-              height="32"
-              aria-hidden="true"
-            >
+          <button id="btnOpen" aria-expanded="false">
+            <svg width="32" height="32" aria-hidden="true">
               <use href="icons.svg#hamburger-icon"></use>
             </svg>
           </button>
         </div>
-        <!-- <svg class="svg-hamburger" width="32" height="32" aria-hidden="true">
-          <use href="icons.svg#hamburger-icon"></use>
-        </svg> -->
       </nav>
     </header>
 
     <!-- Main content -->
     <main class="full-width content-grid">
       <section class="hero">
-        <section class="hero__text">
+        <div class="hero__text">
           <span class="tag">Upptäck. Upplev. Minns.</span>
           <h1>Hitta lokala evenemang du kommer älska</h1>
           <p>
@@ -81,20 +81,20 @@
           </p>
           <div class="hero__buttons">
             <button>Utforska evenemang</button>
-            <button class="altbutton">Se helgens tips</button>
+            <button class="button--alt">Se helgens tips</button>
           </div>
-        </section>
-        <section class="hero__images">
-          <img src="https://picsum.photos/id/452/200/500" />
-          <img src="https://picsum.photos/id/452/200/700" />
-          <img src="https://picsum.photos/id/452/200/300" />
-        </section>
+        </div>
+        <div class="hero__images">
+          <img src="https://picsum.photos/id/158/1000/1000" />
+          <img src="https://picsum.photos/id/195/500/500" />
+          <img src="https://picsum.photos/id/250/500/500" />
+        </div>
       </section>
       <section class="full-width content-grid search">
         <div>
           <h3>Hitta rätt evenemang</h3>
           <form class="searchform">
-            <div class="formgroup">
+            <div class="form__group">
               <label for="searchstring">Sökord</label>
               <input
                 type="search"
@@ -102,7 +102,7 @@
                 placeholder="Sök på t.ex. konsert, yoga..."
               />
             </div>
-            <div class="formgroup">
+            <div class="form__group">
               <label for="category">Kategori</label>
               <select id="category">
                 <option value="" selected disabled>Alla kategorier</option>
@@ -113,7 +113,7 @@
                 <option value="sport">Sport / Hälsa</option>
               </select>
             </div>
-            <div class="formgroup">
+            <div class="form__group">
               <label for="date">Datum</label>
               <input type="date" id="date" />
             </div>
@@ -129,18 +129,21 @@
         </div>
         <div class="gallery">
           <article class="card">
-            <img src="https://picsum.photos/id/452/200/300" />
+            <img
+              src="https://picsum.photos/id/452/500/500"
+              alt="Konsert med aktiv publik"
+            />
             <div class="card__text">
               <div class="card__type">
-                <span class="tag konsert">Konsert</span>
+                <span class="tag tag--konsert">Konsert</span>
                 <span>24 maj</span>
               </div>
               <a href="#" class="card__main-link"
                 ><h3>Indie Night med Nova Sun</h3></a
               >
               <span>Pustervik, Göteborg</span>
-              <a href="#" class="favorite">
-                <div class="encircledfavorite">
+              <a href="#" class="card__favorite">
+                <div>
                   <svg width="25" height="25" aria-hidden="true">
                     <use href="icons.svg#heart-icon"></use>
                   </svg>
@@ -152,78 +155,120 @@
           <article class="card">
             <img
               src="https://images.unsplash.com/photo-1459292414836-763d35c7ae4c?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Skog med morgon-sol"
             />
             <div class="card__text">
               <div class="card__type">
-                <span class="tag market">Marknad</span>
+                <span class="tag tag--market">Marknad</span>
                 <span>25 maj</span>
               </div>
               <a href="#" class="card__main-link"
                 ><h3>Vårmarknad i Slottsskogen</h3></a
               >
               <span>Slottsskogen, Göteborg</span>
+              <a href="#" class="card__favorite">
+                <div>
+                  <svg width="25" height="25" aria-hidden="true">
+                    <use href="icons.svg#heart-icon"></use>
+                  </svg>
+                </div>
+              </a>
             </div>
           </article>
 
           <article class="card">
             <img
               src="https://images.unsplash.com/photo-1607556671927-78a6605e290b?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Hand som drejar en kopp"
             />
             <div class="card__text">
               <div class="card__type">
-                <span class="tag workshop">Workshop</span>
+                <span class="tag tag--workshop">Workshop</span>
                 <span>27 maj</span>
               </div>
               <a href="#" class="card__main-link"
                 ><h3>Keramikkurs för nybörjare</h3></a
               >
               <span>Studio Lera, Göteborg</span>
+              <a href="#" class="card__favorite">
+                <div>
+                  <svg width="25" height="25" aria-hidden="true">
+                    <use href="icons.svg#heart-icon"></use>
+                  </svg>
+                </div>
+              </a>
             </div>
           </article>
 
           <article class="card">
             <img
               src="https://images.unsplash.com/photo-1508700193932-2293b4385ab9?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Sjöjungfu som simmar"
             />
             <div class="card__text">
               <div class="card__type">
-                <span class="tag family">Familj</span>
+                <span class="tag tag--family">Familj</span>
                 <span>31 maj</span>
               </div>
               <a href="#" class="card__main-link"
                 ><h3>Barnteater: Den lilla sjöjungfrun</h3></a
               >
               <span>Folkteatern, Göteborg</span>
+              <a href="#" class="card__favorite">
+                <div>
+                  <svg width="25" height="25" aria-hidden="true">
+                    <use href="icons.svg#heart-icon"></use>
+                  </svg>
+                </div>
+              </a>
             </div>
           </article>
 
           <article class="card">
-            <img src="https://picsum.photos/id/202/200/300" />
+            <img
+              src="https://picsum.photos/id/202/500/500"
+              alt="Morgonsol som lyser upp en vacker allé"
+            />
             <div class="card__text">
               <div class="card__type">
-                <span class="tag sport">Sport</span>
+                <span class="tag tag--sport">Sport</span>
                 <span>1 juni</span>
               </div>
               <a href="#" class="card__main-link"
                 ><h3>Morgonlöpning & frukost</h3></a
               >
               <span>Slottsskogen, Göteborg</span>
+              <a href="#" class="card__favorite">
+                <div>
+                  <svg width="25" height="25" aria-hidden="true">
+                    <use href="icons.svg#heart-icon"></use>
+                  </svg>
+                </div>
+              </a>
             </div>
           </article>
 
           <article class="card">
             <img
               src="https://images.unsplash.com/photo-1415201364774-f6f0bb35f28f?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Rad med saxofonister"
             />
             <div class="card__text">
               <div class="card__type">
-                <span class="tag konsert">Konsert</span>
+                <span class="tag tag--konsert">Konsert</span>
                 <span>3 juni</span>
               </div>
               <a href="#" class="card__main-link"
                 ><h3>Jazzkväll på Vasateatern</h3></a
               >
               <span>Vasateatern, Göteborg</span>
+              <a href="#" class="card__favorite">
+                <div>
+                  <svg width="25" height="25" aria-hidden="true">
+                    <use href="icons.svg#heart-icon"></use>
+                  </svg>
+                </div>
+              </a>
             </div>
           </article>
         </div>
@@ -279,28 +324,30 @@
       <div class="footer__content">
         <div class="footer__media">
           <div class="footer__logo">
-            <svg class="svg-logo" width="32" height="32" aria-hidden="true">
-              <use href="icons.svg#logo-icon"></use>
-            </svg>
-            <h3>Evently</h3>
+            <a href="#">
+              <svg width="32" height="32" aria-hidden="true">
+                <use href="icons.svg#logo-icon"></use>
+              </svg>
+              <h3>Evently</h3>
+            </a>
           </div>
           <p>
             Evently samlar lokala evenemang så att du enkelt kan upptäcka,
             planera och dela upplevelser som berikar din vardag.
           </p>
           <div class="footer__logos">
-            <a href="https://www.instagram.com/">
-              <svg width="42" height="42" aria-hidden="true" class="encircled">
+            <a href="https://www.instagram.com/" class="encircled">
+              <svg width="42" height="42" aria-hidden="true">
                 <use href="icons.svg#instagram-icon"></use>
               </svg>
             </a>
-            <a href="https://www.facebook.com/">
-              <svg width="42" height="42" aria-hidden="true" class="encircled">
+            <a href="https://www.facebook.com/" class="encircled">
+              <svg width="42" height="42" aria-hidden="true">
                 <use href="icons.svg#facebook-icon"></use>
               </svg>
             </a>
-            <a href="https://x.com">
-              <svg width="42" height="42" aria-hidden="true" class="encircled">
+            <a href="https://x.com" class="encircled">
+              <svg width="42" height="42" aria-hidden="true">
                 <use href="icons.svg#x-icon"></use>
               </svg>
             </a>
@@ -309,8 +356,8 @@
         <ul>
           <li class="list__header">Utforska</li>
           <li><a href="#">Alla evenemang</a></li>
-          <li><a href="#">Helgens tips</a></li>
           <li><a href="#">Kategorier</a></li>
+          <li><a href="#">Helgens tips</a></li>
           <li><a href="#">Populära</a></li>
         </ul>
         <ul>
@@ -328,5 +375,6 @@
         </ul>
       </div>
     </footer>
+    <script type="text/javascript" src="script.js"></script>
   </body>
 </html>
