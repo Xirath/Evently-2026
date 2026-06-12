@@ -274,6 +274,9 @@ a {
     transition: translate 0.5s ease-in-out;
 
     .navbar__close {
+      position: absolute;
+      top: 10;
+      right: 10;
       align-self: end;
       background-color: transparent;
       border: transparent;

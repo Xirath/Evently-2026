@@ -26,16 +26,12 @@
           </svg>
           <h2>Evently</h2>
         </div>
-
-        <div class="navbar__menu">
-          <button id="btnClose" class="navbar__close" aria-expanded="false">
-            <svg width="32" height="32" aria-hidden="true">
-              <use href="icons.svg#close-icon"></use>
-            </svg>
-          </button>
+        <div class="navbar__menu" role="dialog">
           <ul class="navbar__links">
             <li class="navbar__item">
-              <a class="navbar__link navbar__link--active" href="#">Hem</a>
+              <a class="navbar__link navbar__link--active" id="home" href="#"
+                >Hem</a
+              >
             </li>
             <li class="navbar__item">
               <a class="navbar__link" href="#">Evenemang</a>
@@ -50,6 +46,16 @@
               <a class="navbar__link" href="#">Kontakt</a>
             </li>
           </ul>
+          <button
+            id="btnClose"
+            class="navbar__close"
+            aria-label="close"
+            aria-expanded="false"
+          >
+            <svg width="32" height="32" aria-hidden="true">
+              <use href="icons.svg#close-icon"></use>
+            </svg>
+          </button>
           <div class="navbar__buttons">
             <button class="search-button" aria-label="Search">
               <svg width="32" height="32" aria-hidden="true">
@@ -60,7 +66,11 @@
           </div>
         </div>
         <div class="navbar__open">
-          <button id="btnOpen" aria-expanded="false">
+          <button
+            id="btnOpen"
+            aria-label="Main Navigation"
+            aria-expanded="false"
+          >
             <svg width="32" height="32" aria-hidden="true">
               <use href="icons.svg#hamburger-icon"></use>
             </svg>
